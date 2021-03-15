@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JavaScript Array</title>
+</head>
+<body>
+	Image Path : <input type="text" id="path" value="imags/p1.jpg"><br>
+	<button onclick="add()">新增</button>
+	<button onclick="show()">顯示</button>
+	
+	<script>
+		imgs=[]
+		function add(){
+			var txt=document.getElementById("path");
+			imgs.push(txt.value);
+			
+			alert("新增"+txt.value);
+		}
+		
+		function show(){
+			var s="";
+			
+			for(var i=0; i<imgs.length; i++){
+				s+=imgs[i]+"\n";
+				
+				alert(s);
+			}
+		}
+	</script>	
+</body>
+</html>
