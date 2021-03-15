@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Image Switch</title>
+</head>
+<body>
+	<img src="imgs/p1.jpg" id="pic1" width="600" height="480" ><br>
+	<img src="imgs/p1.jpg" id="pic2" width="" height="" ><br>
+	<button onclick="prev()">上一張</button>
+	<button onclick="next()">下一張</button>
+
+	<script>
+		var imgs=["imgs/p1.jpg", "imgs/p2.jpg", "imgs/p3.jpg"];
+		var count1=0;
+		var count2=0;
+		
+		function next(){
+			var pic=document.getElementById("pic2");
+			count2++;
+			
+			if(count2>=imgs.length)
+				count2=0;
+			
+			pic.src=imgs[count2];
+		}
+		
+		function prev(){
+			var pic=document.getElementById("pic2");
+			count2--;
+			
+			if(count2<0)
+				count2=imgs.length-1;
+			
+			pic.src=imgs[count2];
+		}
+		
+		function autoChange(){
+			var p=document.getElementById("pic1");
+			count1++;
+			if(count1>=imgs.length)
+				count1=0;
+			
+			p.src=imgs[count1];
+		}
+		
+		window.setInterval(autoChange, 3000);
+	</script>
+</body>
+</html>
