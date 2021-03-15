@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Javascript Form</title>
+</head>
+<body>
+	<!-- onsubmit="return check() -> submit前先執行check() -->
+	<!--  form action="HelloServlet" method="post" onsubmit="return check()"-->
+	<form action="ELSubmit.jsp" method="post" onsubmit="return check()">
+		user : <input type="text" id="user" name="user" value="Many" /><br/>
+		<input type="submit" />
+	</form>
+	
+	<script type="text/javascript">
+		function check(){
+			var u=document.getElementById("user");
+			
+			if(u.value.length<5){
+				alert("字串長度必須大於5");
+				return false;
+			}else{
+				return true;
+			}
+		}
+	</script>
+</body>
+</html>
