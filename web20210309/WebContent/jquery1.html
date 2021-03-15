@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jQuery 1</title>
+</head>
+<body>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+	</script>
+	No. : <input type="text" id="num" ><br>
+	<button>show</button>
+	
+	<script >
+		function start(){
+			$("button").click(display);
+		}
+		
+		function display(){
+			var v=$("#num").val();
+			alert("No. value : "+v);
+		}
+		$(document).ready(start);
+	</script>
+</body>
+</html>

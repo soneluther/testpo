@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert Coffee jQuery</title>
+</head>
+<body>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	
+	咖啡名稱:<input type="text" id="coffee" /><br />
+	售價:<input type="text" id="sale" /><br /> 
+	總量:<input type="text" id="total" /><br /> 
+	供應商:<input type="text" id="supplier" /><br /> 
+	價格:<input type="text" id="price" /><br /> 
+	<input type="button" id="insert" value="新增" />
+	<input type="button" id="update" value="修改" />
+	<input type="button" id="delete" value="刪除" /><br>
+	
+	<div id="msg">Result</div>
+	
+	<script>
+		function start(){
+			$("#insert").click(insertCoffee);
+			$("#update").click(updateCoffee);
+			$("#delete").click(deleteCoffee);
+		}
+		
+		function insertCoffee(){
+			var co=$("#coffee").val();
+			var sa=$("#sale").val();
+			var ta=$("#total").val();
+			var su=$("#supplier").val();
+			var pr=$("#price").val();
+			
+			$.post(
+					"InsertCoffeeServlet",
+					{"coffee":co,"sale":sa,"total":ta,"supplier":su,"price":pr},
+					show);
+		}
+		
+		function updateCoffee(){
+			var co=$("#coffee").val();
+			var sa=$("#sale").val();
+			var ta=$("#total").val();
+			
+			$.post(
+					"UpdateCoffeeServlet",
+					{"coffee":co,"sale":sa,"total":ta},
+					show);
+
+		}
+		
+		function deleteCoffee(){
+			var co=$("#coffee").val();
+
+			$.post(
+					"DeleteCoffeeServlet",
+					{"coffee":co},
+					show);
+
+		}
+				
+		function show(rs){
+			$("#msg").html(rs);
+		}
+		
+		$(document).ready(start);
+	</script>
+</body>
+</html>
