@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Students Info</title>
+</head>
+<body>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	
+	student name : <input type="text" id="name"><br>
+	student age : <input type="text" id="age"><br>
+	<input type="button" id="add" value="新增">
+	<input type="button" id="send" value="送出">
+	
+	<div id="msg">Massage Here</div>
+	
+	<script>
+		function start(){
+			$("#add").click(add);
+			$("#send").click(send);
+		}
+		
+		var students=[]; 
+		
+		function add(){
+			var name=$("#name").val();
+			var age=$("#age").val();
+
+			var obj=new Object();
+			obj.name=name;
+			obj.age=age;
+
+			students.push(obj);
+			alert(JSON.stringify(students));
+		}
+		
+		function send(){			
+			var jsonStr=JSON.stringify(students);
+			$.post("JsonAddsServlet",{"stds":jsonStr},getResult);
+		}
+
+		function getResult(stds){
+			$("#msg").html(stds);
+		}
+
+		$(document).ready(start);
+	</script>
+
+</body>
+</html>

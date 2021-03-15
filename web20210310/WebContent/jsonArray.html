@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JSON Array</title>
+</head>
+<body>
+	<script>
+		document.writeln("<h2>JSON Array example</h2>");
+
+		var book={
+			"programming":[
+					{"name":"JAVA","price":"100"},
+					{"name":"JAVA Web","price":"99"}
+				],
+			"SQL":[
+					{"name":"MySQL","price":"90"},
+					{"name":"MSSQL","price":"88"}
+				]
+		}
+
+		document.writeln("<table border='1'>");
+
+		for(var i=0; i<book.programming.length; i++){
+				document.writeln("<tr><td><b>Name</b></td><td>"+book.programming[i].name+"</td></tr>");
+				document.writeln("<tr><td><b>price</b></td><td>"+book.programming[i].price+"</td></tr>");
+		}
+
+		for(var i=0; i<book.SQL.length; i++){
+			document.writeln("<tr><td><b>Name</b></td><td>"+book.SQL[i].name+"</td></tr>");
+			document.writeln("<tr><td><b>price</b></td><td>"+book.SQL[i].price+"</td></tr>");
+		}
+
+		document.writeln("</table>");
+	
+				
+	</script>
+	
+</body>
+</html>
